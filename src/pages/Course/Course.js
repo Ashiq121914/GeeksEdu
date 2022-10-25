@@ -36,11 +36,11 @@ const Course = () => {
       <p>{description}</p>
       <p>{course_overview}</p>
 
-      <button className="btn btn-lg btn-primary mb-5">
-        <Link className="text-white" to={`/checkout/${id}`}>
+      <Link className="text-white" to={`/checkout/${id}`}>
+        <button className="btn btn-lg btn-primary mb-5">
           Get premium access
-        </Link>
-      </button>
+        </button>
+      </Link>
     </div>
   );
 };
