@@ -9,6 +9,7 @@ const Category = () => {
 
   return (
     <div>
+      <h2 className="text-center fs-1">Courses</h2>
       <Container>
         <Row className="g-2">
           <Col className="border border-dark mt-5 p-3" lg="3">
