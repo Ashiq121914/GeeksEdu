@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+
 import { Link } from "react-router-dom";
 import logo from "../../../asset/logo.png";
 
@@ -13,12 +13,12 @@ const Header = () => {
         <Navbar.Brand className="fw -bold">
           <Link className=" text-decoration-none" to="/">
             <img
-              className="me-2"
+              className="me-2 rounded"
               src={logo}
               alt=""
-              style={{ height: "60px" }}
+              style={{ height: "50px" }}
             />
-            <span className="fs-3 fw-bold text-white">GeeksEdu</span>
+            <span className="fs-2  fw-bold text-white">GeeksEdu</span>
           </Link>
         </Navbar.Brand>
 
