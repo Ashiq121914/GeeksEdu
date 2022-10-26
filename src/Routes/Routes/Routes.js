@@ -7,6 +7,8 @@ import Checkout from "../../pages/Checkout/Checkout";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Blog from "../../pages/Blog/Blog";
+import WrongRoute from "../../pages/WrongRoute/WrongRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -45,6 +47,14 @@ export const routes = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "*",
+        element: <WrongRoute></WrongRoute>,
       },
     ],
   },

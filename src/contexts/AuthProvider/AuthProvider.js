@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
   // for loading
   const [loading, setLoading] = useState(true);
 
-  //for google log in
+  //for google and github log in
   const providerLogin = (provider) => {
     setLoading(true);
     return signInWithPopup(auth, provider);

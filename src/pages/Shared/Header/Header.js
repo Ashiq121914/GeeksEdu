@@ -52,7 +52,7 @@ const Header = () => {
             <Link className="text-white text-decoration-none me-4" to="/faq">
               FAQ
             </Link>
-            <Link className="text-white text-decoration-none me-4" to="blog">
+            <Link to="/blog" className="text-white text-decoration-none me-4">
               Blog
             </Link>
 
@@ -61,14 +61,15 @@ const Header = () => {
               onClick={handleToogle}
               type="switch"
               id="custom-switch"
-              label={<>{!checked ? "light" : "dark"}</>}
+              label={<>{!checked ? "dark" : "light"}</>}
             />
           </Nav>
+          {/* for showing the user info */}
           {user?.uid ? (
             <>
               <img
                 className="rounded-circle"
-                style={{ width: "50px", cursor: "pointer" }}
+                style={{ width: "40px", height: "40px", cursor: "pointer" }}
                 src={user.photoURL}
                 alt=""
                 title={user.displayName}
