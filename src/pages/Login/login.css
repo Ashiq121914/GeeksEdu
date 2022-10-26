@@ -1,0 +1,21 @@
+.login-container{
+    width: 50%;
+    
+}
+.btn-github{
+    margin-left: 15px;
+}
+
+
+@media only screen and (max-width:600px) {
+    .login-container{
+        width: 100%;
+        
+    }
+    .btn-google{
+        margin-bottom: 20px;
+    }
+    .btn-github{
+        margin-left: 0;
+    }
+}

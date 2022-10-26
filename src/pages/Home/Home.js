@@ -1,7 +1,6 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import { Link } from "react-router-dom";
-import "./Home.css";
 
 const Home = () => {
   return (
@@ -21,11 +20,11 @@ const Home = () => {
               bottom: "initial",
             }}
           >
-            <div className="bg-dark bg-opacity-25 py-5 rounded w-75 mx-auto">
-              <h1 className="fw-bold" style={{ fontSize: "70px" }}>
+            <div className="bg-dark bg-opacity-25 py-5 rounded mx-auto ">
+              <h1 className="fw-bold display-1 text-center">
                 Better Education for a better World
               </h1>
-              <p className="fs-5">limitless learning, more possibilities</p>
+              <p className="fs-4">limitless learning, more possibilities</p>
               <button className="btn btn-warning btn-lg btn-block mt-4">
                 <Link
                   to="/category"
@@ -52,11 +51,11 @@ const Home = () => {
               bottom: "initial",
             }}
           >
-            <div className="bg-dark bg-opacity-25 py-5 rounded w-75 mx-auto">
-              <h1 className="fw-bold" style={{ fontSize: "70px" }}>
-                Get personalized recommendations
+            <div className="bg-dark bg-opacity-25 py-5 rounded mx-auto ">
+              <h1 className="fw-bold display-1 text-center">
+                Learn From the best
               </h1>
-              <p className="fs-5">GeeksEdu is here all the time</p>
+              <p className="fs-4">limitless learning, more possibilities</p>
               <button className="btn btn-warning btn-lg btn-block mt-4">
                 <Link
                   to="/category"
@@ -83,11 +82,11 @@ const Home = () => {
               bottom: "initial",
             }}
           >
-            <div className="bg-dark bg-opacity-25 py-5 rounded w-75 mx-auto">
-              <h1 className="fw-bold" style={{ fontSize: "70px" }}>
-                ONLINE COURSES TO LEARN
+            <div className="bg-dark bg-opacity-25 py-5 rounded mx-auto ">
+              <h1 className="fw-bold display-1 text-center">
+                Learn on your schedule
               </h1>
-              <p className="fs-5">Own your future learning new skills online</p>
+              <p className="fs-4">Own your future learning new skills online</p>
               <button className="btn btn-warning btn-lg btn-block mt-4">
                 <Link
                   to="/category"

@@ -6,6 +6,7 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import login from "./login.css";
 const Login = () => {
   // for login error
   const [error, setError] = useState("");
@@ -70,14 +71,17 @@ const Login = () => {
 
   return (
     <div className="container">
-      <Form onSubmit={handleSubmit}>
+      <Form
+        className="border border-dark-50 p-5 mt-5 rounded shadow mx-auto login-container"
+        onSubmit={handleSubmit}
+      >
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label className="fs-5">Email address</Form.Label>
           <Form.Control name="email" type="email" placeholder="Enter email" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label className="fs-5">Password</Form.Label>
           <Form.Control
             name="password"
             type="password"
@@ -87,28 +91,35 @@ const Login = () => {
         <p>
           New to this site? Please <Link to="/register">Register</Link>
         </p>
-        <Button variant="primary" type="submit">
+
+        <button
+          className="btn btn-warning fw-bold btn-lg btn-block"
+          type="submit"
+        >
           Submit
-        </Button>
+        </button>
+
         <Form.Text className="text-danger ms-5">{error}</Form.Text>
-        <p>Or</p>
+        <p className="text-center fw-bold fs-5">Or</p>
         {/* for google and github sing in */}
-        <button
-          onClick={handleGoogleSignIn}
-          type="button"
-          className="btn btn-primary"
-        >
-          <FaGoogle className="me-2 mb-1"></FaGoogle>
-          Sign In With Google
-        </button>
-        <button
-          onClick={handleGithubSignIn}
-          type="button"
-          className="btn btn-dark ms-3"
-        >
-          <FaGithub className=" me-2 mb-1"></FaGithub>
-          Sign In With Github
-        </button>
+        <div className="text-center">
+          <button
+            onClick={handleGoogleSignIn}
+            type="button"
+            className="btn btn-primary btn-google"
+          >
+            <FaGoogle className="me-2 mb-1"></FaGoogle>
+            Sign In With Google
+          </button>
+          <button
+            onClick={handleGithubSignIn}
+            type="button"
+            className="btn btn-dark btn-github"
+          >
+            <FaGithub className=" me-2"></FaGithub>
+            Sign In With Github
+          </button>
+        </div>
       </Form>
     </div>
   );
