@@ -99,6 +99,7 @@ const Login = () => {
           Submit
         </button>
 
+        {/* error showing here */}
         <Form.Text className="text-danger ms-5">{error}</Form.Text>
         <p className="text-center fw-bold fs-5">Or</p>
         {/* for google and github sing in */}

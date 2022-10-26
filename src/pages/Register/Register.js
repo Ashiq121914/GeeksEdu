@@ -1,10 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
+  // for login error
+  const [error, setError] = useState("");
+
+  // for go to location it supposed to be
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
 
   // for sign in with email and password
   const handleSubmit = (event) => {
@@ -23,8 +31,11 @@ const Register = () => {
         console.log(user);
         form.reset();
         handleUpdateUserProfile(name, photoURL);
+        navigate(from, { replace: true });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        setError(error.message);
+      });
   };
 
   //updating the name and photoURL
@@ -35,18 +46,33 @@ const Register = () => {
     };
     updateUserProfile(profile)
       .then(() => {})
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setError(error);
+      });
   };
   return (
     <div className="container">
-      <Form onSubmit={handleSubmit} className="w-50">
+      <Form
+        onSubmit={handleSubmit}
+        className="border border-dark-50 p-5 mt-5 rounded shadow mx-auto login-container"
+      >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Full Name</Form.Label>
-          <Form.Control name="name" type="text" placeholder="Enter full name" />
+          <Form.Control
+            name="name"
+            type="text"
+            placeholder="Enter full name"
+            required
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control name="email" type="email" placeholder="Enter email" />
+          <Form.Control
+            name="email"
+            type="email"
+            placeholder="Enter email"
+            required
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Photo URL</Form.Label>
@@ -54,6 +80,7 @@ const Register = () => {
             name="photoURL"
             type="text"
             placeholder="Enter Photo URL"
+            required
           />
         </Form.Group>
 
@@ -63,14 +90,18 @@ const Register = () => {
             name="password"
             type="password"
             placeholder="Password"
+            required
           />
         </Form.Group>
         <p>
           Already have an Account? Please <Link to="/login">Login</Link>
         </p>
-        <Button variant="primary" type="submit">
+
+        <Button variant="warning" type="submit">
           Submit
         </Button>
+        {/* error showing here */}
+        <p className="text-danger mt-2">{error}</p>
       </Form>
     </div>
   );
