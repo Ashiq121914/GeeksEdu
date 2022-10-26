@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -6,8 +6,16 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import logo from "../../../asset/logo.png";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import Form from "react-bootstrap/Form";
 
 const Header = () => {
+  // for toogle option
+  const [checked, setChecked] = useState(false);
+
+  const handleToogle = (event) => {
+    setChecked(event.target.checked);
+  };
+
   // using context here
   const { user, logOut } = useContext(AuthContext);
 
@@ -28,13 +36,13 @@ const Header = () => {
               alt=""
               style={{ height: "50px" }}
             />
-            <span className="fs-2  fw-bold text-white">GeeksEdu</span>
+            <span className="fs-2  fw-bold text-white ">GeeksEdu</span>
           </Link>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto mt-3">
+          <Nav className="me-auto mt-2">
             <Link
               className="text-white text-decoration-none me-4 "
               to="/category"
@@ -47,7 +55,14 @@ const Header = () => {
             <Link className="text-white text-decoration-none me-4" to="blog">
               Blog
             </Link>
-            <p className="text-white">toggle</p>
+
+            <Form.Check
+              className="text-white"
+              onClick={handleToogle}
+              type="switch"
+              id="custom-switch"
+              label={<>{!checked ? "light" : "dark"}</>}
+            />
           </Nav>
           {user?.uid ? (
             <>
