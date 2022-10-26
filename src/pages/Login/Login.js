@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,6 +7,10 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 const Login = () => {
+  // for login error
+  const [error, setError] = useState("");
+
+  //context from authInfo
   const { providerLogin, signIn } = useContext(AuthContext);
   //google provider
   const googleProvider = new GoogleAuthProvider();
@@ -49,8 +53,12 @@ const Login = () => {
         console.log(user);
         form.reset();
         navigate("/");
+        setError("");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setError(error.message);
+        console.log(error);
+      });
   };
 
   return (
@@ -59,9 +67,6 @@ const Login = () => {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control name="email" type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -78,6 +83,7 @@ const Login = () => {
         <Button variant="primary" type="submit">
           Submit
         </Button>
+        <Form.Text className="text-danger ms-5">{error}</Form.Text>
         <p>Or</p>
         {/* for google and github sing in */}
         <button
