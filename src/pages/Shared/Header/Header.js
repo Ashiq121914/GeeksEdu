@@ -42,8 +42,20 @@ const Header = () => {
             </Link>
             <p className="text-white">toggle</p>
           </Nav>
-          <Link to="/register">Register</Link>
-          <Link to="/login">Login</Link>
+          {user.uid ? (
+            <>
+              <img
+                className="rounded-circle"
+                style={{ width: "50px", cursor: "pointer" }}
+                src={user.photoURL}
+                alt=""
+                title={user.displayName}
+              />
+              <button className="btn btn-dark ms-2">Sign Out</button>
+            </>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>

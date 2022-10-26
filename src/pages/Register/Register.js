@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
 const Register = () => {
   return (
     <div className="container">
@@ -22,9 +23,9 @@ const Register = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
+        <p>
+          Already have an Account? Please <Link to="/login">Login</Link>
+        </p>
         <Button variant="primary" type="submit">
           Submit
         </Button>
