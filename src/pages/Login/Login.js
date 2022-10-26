@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 import { FaGoogle, FaGithub } from "react-icons/fa";
@@ -39,6 +39,11 @@ const Login = () => {
       .catch((error) => console.error(error));
   };
 
+  // for go to location it supposed to be
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
   //sign in with email and password
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -52,7 +57,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
-        navigate("/");
+        navigate(from, { replace: true });
         setError("");
       })
       .catch((error) => {
