@@ -11,6 +11,7 @@ const Register = () => {
   // for go to location it supposed to be
   const location = useLocation();
 
+  //to navigate to the necessary page
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
 
@@ -30,8 +31,11 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         form.reset();
+
         handleUpdateUserProfile(name, photoURL);
+
         navigate(from, { replace: true });
+        window.location.reload();
       })
       .catch((error) => {
         setError(error.message);

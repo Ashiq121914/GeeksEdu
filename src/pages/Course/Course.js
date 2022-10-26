@@ -1,12 +1,13 @@
 import React, { useRef } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { FaDownload } from "react-icons/fa";
+import { FaDownload, FaStar } from "react-icons/fa";
 
 import { useReactToPrint } from "react-to-print";
 
 const Course = () => {
   const course = useLoaderData();
-  const { id, title, image, description, course_overview } = course;
+  const { id, title, image, description, course_overview, price, rating } =
+    course;
   console.log(course);
 
   // for download pdf
@@ -30,7 +31,13 @@ const Course = () => {
         <FaDownload></FaDownload>
       </button>
       <div>
-        <img className="w-50 my-4" src={image} alt="" />
+        <img className="w-50 my-4 " src={image} alt="" />
+        <p className="fs-4">Course Price: {price}</p>
+        <p className="fs-4">
+          Course Rating:
+          <FaStar className="text-warning mb-2 me-1 ms-2"></FaStar>
+          <span>{rating}</span>
+        </p>
       </div>
 
       <p>{description}</p>

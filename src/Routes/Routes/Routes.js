@@ -23,13 +23,18 @@ export const routes = createBrowserRouter([
       {
         path: "/category",
         element: <Category></Category>,
-        loader: () => fetch("http://localhost:5000/category"),
+        loader: () =>
+          fetch(
+            "https://b610-lerning-platform-server-side-theta.vercel.app/category"
+          ),
       },
       {
         path: "/course/:id",
         element: <Course></Course>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/course/${params.id}`),
+          fetch(
+            `https://b610-lerning-platform-server-side-theta.vercel.app/course/${params.id}`
+          ),
       },
       {
         path: "/checkout/:id",
@@ -39,7 +44,9 @@ export const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/course/${params.id}`),
+          fetch(
+            `https://b610-lerning-platform-server-side-theta.vercel.app/course/${params.id}`
+          ),
       },
       {
         path: "/login",
