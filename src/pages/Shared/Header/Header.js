@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import logo from "../../../asset/logo.png";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import Form from "react-bootstrap/Form";
+import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
   // for toogle option
@@ -73,13 +74,18 @@ const Header = () => {
           {/* for showing the conditional user info  or login*/}
           {user?.uid ? (
             <>
-              <img
-                className="rounded-circle"
-                style={{ width: "40px", height: "40px", cursor: "pointer" }}
-                src={user.photoURL}
-                alt=""
-                title={user.displayName}
-              />
+              {user.photoURL ? (
+                <img
+                  className="rounded-circle"
+                  style={{ width: "40px", height: "40px", cursor: "pointer" }}
+                  src={user.photoURL}
+                  alt=""
+                  title={user.displayName}
+                />
+              ) : (
+                <FaUserAlt className="text-white fs-2"></FaUserAlt>
+              )}
+
               <button onClick={handleLogOut} className="btn btn-dark ms-2 fs-5">
                 Sign Out
               </button>
