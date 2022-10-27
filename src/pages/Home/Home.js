@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import { Link } from "react-router-dom";
 
+// just added the react bootstrap carousel
 const Home = () => {
   return (
     <div className="">
@@ -14,6 +15,7 @@ const Home = () => {
             alt="First slide"
           />
           <Carousel.Caption
+            // this style to take the caption in the middle of the page
             style={{
               top: "50%",
               transform: "translateY(-50%)",
@@ -26,6 +28,7 @@ const Home = () => {
               </h1>
               <p className="fs-4">limitless learning, more possibilities</p>
               <button className="btn btn-warning btn-lg btn-block mt-4">
+                {/* button to take to the courses */}
                 <Link
                   to="/category"
                   className="text-decoration-none text-dark fw-bold"

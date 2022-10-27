@@ -25,13 +25,13 @@ const Course = () => {
       style={{ width: "100%", height: window.innerHeight }}
       className="container text-center"
     >
-      <h2 className="d-inline-block me-4 my-4">{title}</h2>
-      {/* for printing */}
+      <h2 className="d-inline-block me-4 my-4 fw-bold">{title}</h2>
+      {/* button for printing*/}
       <button onClick={handlePrint}>
         <FaDownload></FaDownload>
       </button>
       <div>
-        <img className="w-50 my-4 " src={image} alt="" />
+        <img className="w-50 my-4 shadow-lg" src={image} alt="" />
         <p className="fs-4">Course Price: {price}</p>
         <p className="fs-4">
           Course Rating:
@@ -40,11 +40,13 @@ const Course = () => {
         </p>
       </div>
 
-      <p>{description}</p>
-      <p>{course_overview}</p>
+      <div className="border border-dark-50 p-3 fs-5 rounded shadow">
+        <p>{description}</p>
+        <p>{course_overview}</p>
+      </div>
 
-      <Link className="text-white" to={`/checkout/${id}`}>
-        <button className="btn btn-lg btn-primary mb-5">
+      <Link className="text-white " to={`/checkout/${id}`}>
+        <button className="btn btn-lg btn-primary mb-5 mt-4">
           Get premium access
         </button>
       </Link>

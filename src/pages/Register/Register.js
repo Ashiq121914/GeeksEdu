@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 const Register = () => {
+  // adding the context here
   const { createUser, updateUserProfile } = useContext(AuthContext);
   // for login error
   const [error, setError] = useState("");
@@ -26,12 +27,13 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const password = form.password.value;
 
+    // creating the user
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         form.reset();
-
+        //updating the profile
         handleUpdateUserProfile(name, photoURL);
 
         navigate(from, { replace: true });

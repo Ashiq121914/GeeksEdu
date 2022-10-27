@@ -10,7 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import app from "../../firebase/firebase.config";
-
+//setting up context
 export const AuthContext = createContext();
 
 const auth = getAuth(app);
@@ -32,6 +32,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signOut(auth);
   };
+
   // for creating user with email and password
 
   const createUser = (email, password) => {
@@ -48,6 +49,7 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, profile);
   };
 
+  // for changing the user
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("user inside state changed", currentUser);
@@ -59,6 +61,7 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+  // sending the contexts
   const authInfo = {
     user,
     providerLogin,

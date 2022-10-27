@@ -5,14 +5,16 @@ import LeftCategory from "../LeftCategory/LeftCategory";
 import RightCourseCard from "../RightCourseCard/RightCourseCard";
 
 const Category = () => {
+  // loading the data
   const courses = useLoaderData();
 
   return (
     <div>
       <h2 className="text-center fs-1">Courses</h2>
       <Container>
+        {/* deviding the row into 2 sections */}
         <Row className="g-2">
-          <Col className="border border-dark mt-5 p-3" lg="3">
+          <Col className="border border-dark mt-5 p-3 bg-dark" lg="3">
             {courses.map((course) => (
               <LeftCategory key={course.id} course={course}></LeftCategory>
             ))}

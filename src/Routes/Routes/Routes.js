@@ -11,6 +11,7 @@ import Blog from "../../pages/Blog/Blog";
 import WrongRoute from "../../pages/WrongRoute/WrongRoute";
 import FAQs from "../../pages/FAQs/FAQs";
 
+//creating the route
 export const routes = createBrowserRouter([
   {
     path: "/",
@@ -36,6 +37,7 @@ export const routes = createBrowserRouter([
             `https://b610-lerning-platform-server-side-theta.vercel.app/course/${params.id}`
           ),
       },
+      // private route
       {
         path: "/checkout/:id",
         element: (
@@ -64,6 +66,7 @@ export const routes = createBrowserRouter([
         path: "/faqs",
         element: <FAQs></FAQs>,
       },
+      // for 404 route
       {
         path: "*",
         element: <WrongRoute></WrongRoute>,

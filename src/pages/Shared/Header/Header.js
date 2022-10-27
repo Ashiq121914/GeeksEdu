@@ -44,27 +44,33 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto mt-2">
             <Link
-              className="text-white text-decoration-none me-4 "
+              className="text-white text-decoration-none me-4 fs-5"
               to="/category"
             >
               Courses
             </Link>
-            <Link className="text-white text-decoration-none me-4" to="/faqs">
+            <Link
+              className="text-white text-decoration-none me-4 fs-5"
+              to="/faqs"
+            >
               FAQs
             </Link>
-            <Link to="/blog" className="text-white text-decoration-none me-4">
+            <Link
+              to="/blog"
+              className="text-white text-decoration-none me-4 fs-5"
+            >
               Blog
             </Link>
 
             <Form.Check
-              className="text-white"
+              className="text-white fs-5"
               onClick={handleToogle}
               type="switch"
               id="custom-switch"
               label={<>{!checked ? "dark" : "light"}</>}
             />
           </Nav>
-          {/* for showing the user info */}
+          {/* for showing the conditional user info  or login*/}
           {user?.uid ? (
             <>
               <img
@@ -74,12 +80,19 @@ const Header = () => {
                 alt=""
                 title={user.displayName}
               />
-              <button onClick={handleLogOut} className="btn btn-dark ms-2">
+              <button onClick={handleLogOut} className="btn btn-dark ms-2 fs-5">
                 Sign Out
               </button>
             </>
           ) : (
-            <Link to="/login">Login</Link>
+            <button className="btn btn-dark">
+              <Link
+                className="text-decoration-none text-white fs-5"
+                to="/login"
+              >
+                Login
+              </Link>
+            </button>
           )}
         </Navbar.Collapse>
       </Container>

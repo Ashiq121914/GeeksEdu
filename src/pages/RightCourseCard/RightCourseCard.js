@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const RightCourseCard = ({ course }) => {
   const { id, title, image, price, rating } = course;
+  //here making card for each particular course
   return (
     <Card className="m-2 p-0">
       <Card.Img variant="top" className="w-100" src={image} />
@@ -18,7 +19,7 @@ const RightCourseCard = ({ course }) => {
           </div>
           <div>{price}</div>
         </div>
-
+        {/* explore course will take user to the details page */}
         <div className="text-center">
           <Link to={`/course/${id}`} className="btn btn-primary mt-4 ">
             Explore Course
