@@ -41,7 +41,9 @@ const Course = () => {
       </div>
 
       <div className="border border-dark-50 p-3 fs-5 rounded shadow">
+        <p className="fs-2">Description</p>
         <p>{description}</p>
+
         <p>{course_overview}</p>
       </div>
 
