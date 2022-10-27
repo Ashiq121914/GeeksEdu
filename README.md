@@ -5,6 +5,7 @@
 ## Website Features:
 
 - Header section has a toggle button and login button.
+- when user hover in the user image, user name will show, also if the usr click on the image a toast will show user name
 - Clicking the course from header or home, it will take to the course category page.
 - Clicking any category will take users to the details page,where course details will be there.
 - if any user click on the get premium access, it will take to the checkout page.

@@ -8,6 +8,7 @@ import logo from "../../../asset/logo.png";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import Form from "react-bootstrap/Form";
 import { FaUserAlt } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Header = () => {
   // for toogle option
@@ -25,6 +26,10 @@ const Header = () => {
     logOut()
       .then(() => {})
       .catch((error) => console.error(error));
+  };
+  // showing toast the user name when clickled
+  const toasterPop = () => {
+    toast.success(user.displayName);
   };
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -81,9 +86,13 @@ const Header = () => {
                   src={user.photoURL}
                   alt=""
                   title={user.displayName}
+                  onClick={toasterPop}
                 />
               ) : (
-                <FaUserAlt className="text-white fs-2"></FaUserAlt>
+                <FaUserAlt
+                  onClick={toasterPop}
+                  className="text-white fs-2"
+                ></FaUserAlt>
               )}
 
               <button onClick={handleLogOut} className="btn btn-dark ms-2 fs-5">
