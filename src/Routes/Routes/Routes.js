@@ -22,6 +22,10 @@ export const routes = createBrowserRouter([
         element: <Home></Home>,
       },
       {
+        path: "/home",
+        element: <Home></Home>,
+      },
+      {
         path: "/category",
         element: <Category></Category>,
         loader: () =>

@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../../asset/logo.png";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import Form from "react-bootstrap/Form";
@@ -32,44 +32,83 @@ const Header = () => {
     toast.success(user.displayName);
   };
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      className={!checked ? "bg-dark" : "bg-white"}
+    >
       <Container>
         <Navbar.Brand className="fw -bold">
-          <Link className=" text-decoration-none" to="/">
+          <NavLink className=" text-decoration-none" to="/home">
             <img
               className="me-2 rounded"
               src={logo}
               alt=""
-              style={{ height: "50px" }}
+              style={{ height: "60px", width: "70px" }}
             />
-            <span className="fs-2  fw-bold text-white ">GeeksEdu</span>
-          </Link>
+            <span
+              className={
+                !checked
+                  ? "text-white fs-2  fw-bold "
+                  : "text-dark fs-2  fw-bold "
+              }
+              style={{ marginTop: "10px" }}
+            >
+              GeeksEdu
+            </span>
+          </NavLink>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto mt-2">
-            <Link
-              className="text-white text-decoration-none me-4 fs-5"
+          <Nav className="me-auto mt-2 " style={{ marginLeft: "200px" }}>
+            <NavLink
+              className={
+                !checked
+                  ? "text-white  text-decoration-none me-4 fs-5"
+                  : "text-dark  text-decoration-none me-4 fs-5"
+              }
+              to="/home"
+            >
+              Home
+            </NavLink>
+            <NavLink
+              className={
+                !checked
+                  ? "text-white  text-decoration-none me-4 fs-5"
+                  : "text-dark  text-decoration-none me-4 fs-5"
+              }
               to="/category"
             >
               Courses
-            </Link>
-            <Link
-              className="text-white text-decoration-none me-4 fs-5"
+            </NavLink>
+            <NavLink
+              className={
+                !checked
+                  ? "text-white  text-decoration-none me-4 fs-5"
+                  : "text-dark  text-decoration-none me-4 fs-5"
+              }
               to="/faqs"
             >
               FAQs
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/blog"
-              className="text-white text-decoration-none me-4 fs-5"
+              className={
+                !checked
+                  ? "text-white  text-decoration-none me-4 fs-5"
+                  : "text-dark  text-decoration-none me-4 fs-5"
+              }
             >
               Blog
-            </Link>
+            </NavLink>
 
             <Form.Check
-              className="text-white fs-5"
+              className={
+                !checked
+                  ? "text-white  text-decoration-none me-4 fs-5"
+                  : "text-dark  text-decoration-none me-4 fs-5"
+              }
               onClick={handleToogle}
               type="switch"
               id="custom-switch"
@@ -100,13 +139,17 @@ const Header = () => {
               </button>
             </>
           ) : (
-            <button className="btn btn-dark">
-              <Link
-                className="text-decoration-none text-white fs-5"
+            <button className={!checked ? "btn btn-light" : "btn btn-dark"}>
+              <NavLink
+                className={
+                  !checked
+                    ? "text-dark  text-decoration-none me-4 fs-5"
+                    : "text-white  text-decoration-none me-4 fs-5"
+                }
                 to="/login"
               >
                 Login
-              </Link>
+              </NavLink>
             </button>
           )}
         </Navbar.Collapse>

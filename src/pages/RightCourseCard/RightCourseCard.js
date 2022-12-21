@@ -8,7 +8,7 @@ const RightCourseCard = ({ course }) => {
   const { id, title, image, price, rating } = course;
   //here making card for each particular course
   return (
-    <Card className="m-2 p-0">
+    <Card className="m-2 p-0 shadow">
       <Card.Img variant="top" className="w-100" src={image} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
