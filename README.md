@@ -1,5 +1,7 @@
 # GeeksEdu
-
+### default login:
+ - username: xyz@gmail.com
+ - password: xyz`12
 ### Live Site Link: https://geeksedu-67d8c.web.app/
 
 ## Website Features:
